@@ -1,15 +1,15 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet, Button, SafeAreaView } from 'react-native';
 
 export const ProfileScreen = ({navigation}) => {
     const goToBack = () => {
         navigation.goBack()
     }
     return ( 
-        <View style={styles.wrapper}>
+        <SafeAreaView style={styles.wrapper}>
             <Text>ProfileScreen</Text>
             <Button title="back" onPress={goToBack}/>
-        </View>
+        </SafeAreaView>
      );
 }
 

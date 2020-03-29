@@ -24,16 +24,13 @@ export function TopTabNavigation() {
         name="Current" 
         component={CurrentPostScreen}
         options={{
-            tabBarLabel: 'Second',
-            tabBarIcon: ({color}) => (
-              <Icon name="people" color={color} size={26} />
-            ),
-            tabBarIcon:{
-                focused: true, horizontal: true, tintColor: 'red'
-            }
+            tabBarLabel: '↻ ընթացիք',
           }}
         />
-      <Tab.Screen name="Completed" component={CompletedPostScreen} />
+      <Tab.Screen name="Completed" component={CompletedPostScreen} 
+      options={{
+            tabBarLabel: '✔ ավարտված',
+          }}/>
     </Tab.Navigator>
   );
 }

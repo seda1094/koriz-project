@@ -8,11 +8,13 @@ import { InfoScreen } from '../screens/InfoScreen'
 import { ProfileScreen } from '../screens/ProfileScreen'
 import {TopTabNavigation } from './TopTabNavigation'
 import { THEME } from '../theme';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const Tab = createMaterialBottomTabNavigator();
 
 export function BottomTabNavigation() {
   return (
+    <SafeAreaProvider>
     <NavigationContainer>
       <Tab.Navigator
      initialRouteName="Main"
@@ -25,7 +27,7 @@ export function BottomTabNavigation() {
         options={{
           tabBarLabel: '',
           tabBarIcon: ({ color }) => (
-            <SimpleLineIcons name="home" color={color} size={26} />
+            <SimpleLineIcons name="home" color={color} size={24} />
           ),
         }}/>
         <Tab.Screen 
@@ -34,7 +36,7 @@ export function BottomTabNavigation() {
         options={{
           tabBarLabel: '',
           tabBarIcon: ({ color }) => (
-            <SimpleLineIcons name="info" color={color} size={26} />
+            <SimpleLineIcons name="info" color={color} size={24} />
           ),
         }}/>
         <Tab.Screen 
@@ -43,10 +45,11 @@ export function BottomTabNavigation() {
         options={{
           tabBarLabel: '',
           tabBarIcon: ({ color }) => (
-            <SimpleLineIcons name="user" color={color} size={26} />
+            <SimpleLineIcons name="user" color={color} size={24} />
           ),
         }}/>
       </Tab.Navigator>
       </NavigationContainer>
+      </SafeAreaProvider>
         );
 }
