@@ -19,7 +19,8 @@ export function TopTabNavigation() {
     initialRouteName="Completed"
      activeColor={THEME.BLACK}
      inactiveColor={THEME.DARK_GREY}
-     barStyle={{ backgroundColor: THEME.WHITE }}>
+     barStyle={{ backgroundColor: THEME.WHITE }}
+     >
       <Tab.Screen 
         name="Current" 
         component={CurrentPostScreen}
