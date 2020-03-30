@@ -1,7 +1,7 @@
 import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { SimpleLineIcons, Ionicons, Feather } from 'react-native-vector-icons';
-import { Icon } from 'react-native-vector-icons';
+import {Ionicons, Feather } from 'react-native-vector-icons';
+
 
 
 

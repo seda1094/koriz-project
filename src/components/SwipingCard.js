@@ -2,16 +2,16 @@ import React from 'react';
 import { View, Text, StyleSheet, Button, Image, ImageBackground, SafeAreaView } from 'react-native';
 import {THEME} from '../theme'
 
-export const SwipingCard = ({data,position}) => {    
+export const SwipingCard = ({data,position}) => {   
     return ( 
 <View style={[styles.imageWrapper,{bottom: position, right: position }]}>
-                        <ImageBackground style={{ width: '100%', height: '100%' }} source={{ uri: data.uri }}>
+                        <ImageBackground style={{ width: '100%', height: '100%' }} source={{ uri: 'http://'+data.image }}>
                             <View style={styles.textBlock}>
                                 <View style={[styles.section, styles.sectionTop]}>
                                     <View style={styles.wrapperBlock}>
                                         <View style={styles.wrapper}>
-                                            <Text style={styles.title}>{data.title}</Text>
-                                            <Text style={styles.desc}>{data.count}կգ {data.day} օրում</Text>
+                                            <Text style={styles.title}>{data.action_name}</Text>
+                                            <Text style={styles.desc}>{data.kg} կգ 12 օրում</Text>
                                         </View>
                                     </View>
                                 </View>
@@ -20,21 +20,21 @@ export const SwipingCard = ({data,position}) => {
                                         <View style={styles.wrapper}>
                                             <View style={[styles.topInfoBlock, styles.topSection]}>
                                                 <View style={styles.infoBlockCol}>
-                                                    <Text style={styles.textVal}>{data.count}կգ</Text>
+                                                    <Text style={styles.textVal}>{data.kg}կգ</Text>
                                                     <Text style={styles.textDesc}>Գնել են</Text>
                                                 </View>
                                                 <View style={styles.infoBlockCol}>
-                                                    <Text style={styles.textVal}>{data.day}օր</Text>
+                                                    <Text style={styles.textVal}>20 օր</Text>
                                                     <Text style={styles.textDesc}>Ավարտ</Text>
                                                 </View>
 
                                             </View>
                                             <View style={[styles.topRangeBlock, styles.topSection]}>
                                                 <View style={styles.rangeBlock}>
-                                                    <View style={[styles.rangeActive, { width: data.percent + '%' }]}></View>
-                                                    <View style={[styles.rangeDisabled, { width: 100 - data.percent + '%' }]}></View>
+                                                    <View style={[styles.rangeActive, { width: +data.kg*10 + '%' }]}></View>
+                                                    <View style={[styles.rangeDisabled, { width: 100 - +data.kg*10 + '%' }]}></View>
                                                 </View>
-                                                <Text style={styles.textInfo}>{data.percent}% գնված է</Text>
+                                                <Text style={styles.textInfo}>{data.kg*10}% գնված է</Text>
                                             </View>
 
                                         </View>
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
 
     },
     title: {
-        fontSize: 30,
+        fontSize: 20,
         color: THEME.WHITE,
         fontWeight: "bold",
         textTransform: 'uppercase'

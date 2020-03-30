@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { SimpleLineIcons } from 'react-native-vector-icons';
 
@@ -22,7 +21,7 @@ export function BottomTabNavigation() {
           inactiveColor={THEME.MAIN_GREY}
           barStyle={{
             backgroundColor: THEME.WHITE,
-            shadowColor: "#f00",
+            shadowColor: "#000",
             shadowOffset: {
               width: 0,
               height: 10,

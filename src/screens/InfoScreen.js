@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button,SafeAreaView } from 'react-native';
+import {Text, StyleSheet, Button,SafeAreaView } from 'react-native';
 
 export const InfoScreen = ({navigation}) => {
     const goToBack = () => {

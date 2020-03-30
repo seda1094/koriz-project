@@ -1,19 +1,18 @@
 {
   "expo": {
-    "name": "Blank Template",
+    "name": "Koriz",
     "slug": "koriz-project",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
       "ios",
-      "android",
-      "web"
+      "android"
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/myicon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/mySplash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -24,7 +23,13 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier":"com.seda1094.koriz",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.seda1094.koriz",
+      "versionCode": 1
     }
   }
 }

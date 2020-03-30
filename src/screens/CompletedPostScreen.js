@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, Text, FlatList } from 'react-native';
+import { StyleSheet, SafeAreaView, FlatList } from 'react-native';
 import { Card } from '../components/Card';
 import { Spinner } from '../components/UI/Spinner';
 
@@ -22,8 +22,7 @@ export class CompletedPostScreen extends React.Component{
                 
     }
     getData = async () =>{
-        console.log('called on page' + this.state.page);
-        const url = `https://jsonplaceholder.typicode.com/posts?_limit=10&_page=${this.state.page}`
+        const url = `https://calm-everglades-49836.herokuapp.com/data/${this.state.page}/10`
         fetch(url).then(res=>res.json())
         .then(res=>{
             

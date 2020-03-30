@@ -1,39 +1,36 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button, Image, ImageBackground, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 import {THEME} from '../theme'
 
-export const Card = ({data}) => {    
+export const Card = ({data}) => {   
     return ( 
     <View style={styles.wrapper}>
         <View style={styles.card}>
                 <View style={styles.banner}>
                     <ImageBackground
                         style={styles.bannerImage}
-                        source={{ uri: 'https://cdn.cheapism.com/images/081516_national_potato_day_recipe.2e16d0ba.fill-1440x605.jpg' }}>
-                        {/* <View style={styles.textWrap} >
-                        <Text style={styles.title}>{new Date(post.date).toLocaleDateString()}</Text>
-                    </View> */}
+                        source={{ uri: 'http://'+data.item.image }}>
                     </ImageBackground>
 
                 </View>
                 <View style={styles.info}>
                     <View style={styles.productTextBlock}>
-                <Text style={styles.title}>Կարտոֆիլ{data.item.id}</Text>
+                <Text style={styles.title}>{data.item.action_name}</Text>
                         <Text style={styles.deadlineText}>Ակցիայի ավարտման օր</Text>
-                        <Text style={styles.deadline}>23.05.2019</Text>
+                        <Text style={styles.deadline}>{data.item.shipping_date}</Text>
                     </View>
                     <View style={styles.productInfoBlock}>
                         <View style={styles.productCount}>
                             <View style={styles.infoWrapperCount}>
                                 <Text style={styles.desc}>Քանակ</Text>
-                                <Text style={styles.value}>8 կգ</Text>
+                                <Text style={styles.value}>{data.item.kg} կգ</Text>
                             </View>
                         </View>
 
                         <View style={styles.productPrice}>
                             <View style={styles.infoWrapperPrice}>
                                 <Text style={styles.desc}>Գումար</Text>
-                                <Text style={styles.value}>20 000 <Text>֏</Text></Text>
+                                <Text style={styles.value}>{data.item.price} <Text>֏</Text></Text>
                             </View>
                         </View>
                     </View>
