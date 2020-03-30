@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, Image, ImageBackground, StyleSheet } from 'react-native';
 import GestureRecognizer, { swipeDirections } from 'react-native-swipe-gestures';
 import { THEME } from '../theme';
+import { SwipingCard } from '../components/SwipingCard';
 
 
 
@@ -80,10 +81,12 @@ export class CurrentPostScreen extends Component {
     }
 
     onSwipeUp(gestureState) {
+        console.log(gestureState);
+        
         this.swipeForwardHandler()
     }
 
-    onSwipeDown(gestureState) {
+    onSwipeDown() {
         this.swipeBackHandler()
 
     }
@@ -120,53 +123,9 @@ export class CurrentPostScreen extends Component {
                         justifyContent: 'center',
                     }}
                 >
-                    <View style={[styles.imageWrapper,{bottom: 0, right: 0 }]}>
-                        <ImageBackground style={{ width: '100%', height: '100%' }} source={{ uri: this.state.slideData[2].uri }}>
-                        </ImageBackground>
-                    </View>
-                    <View style={[styles.imageWrapper,{bottom: 15, right: 15 }]}>
-                        <ImageBackground style={{ width: '100%', height: '100%' }} source={{ uri: this.state.slideData[1].uri }}>
-                        </ImageBackground>
-                    </View>
-                    <View style={[styles.imageWrapper,{bottom: 30, right: 30 }]}>
-                        <ImageBackground style={{ width: '100%', height: '100%' }} source={{ uri: this.state.slideData[0].uri }}>
-                            <View style={styles.textBlock}>
-                                <View style={[styles.section, styles.sectionTop]}>
-                                    <View style={styles.wrapperBlock}>
-                                        <View style={styles.wrapper}>
-                                            <Text style={styles.title}>{this.state.slideData[0].title}</Text>
-                                            <Text style={styles.desc}>{this.state.slideData[0].count}կգ {this.state.slideData[0].day} օրում</Text>
-                                        </View>
-                                    </View>
-                                </View>
-                                <View style={[styles.section, styles.sectionBottom]}>
-                                    <View style={styles.wrapperBlock}>
-                                        <View style={styles.wrapper}>
-                                            <View style={[styles.topInfoBlock, styles.topSection]}>
-                                                <View style={styles.infoBlockCol}>
-                                                    <Text style={styles.textVal}>{this.state.slideData[0].count}կգ</Text>
-                                                    <Text style={styles.textDesc}>Գնել են</Text>
-                                                </View>
-                                                <View style={styles.infoBlockCol}>
-                                                    <Text style={styles.textVal}>{this.state.slideData[0].day}օր</Text>
-                                                    <Text style={styles.textDesc}>Ավարտ</Text>
-                                                </View>
-
-                                            </View>
-                                            <View style={[styles.topRangeBlock, styles.topSection]}>
-                                                <View style={styles.rangeBlock}>
-                                                    <View style={[styles.rangeActive, { width: this.state.slideData[0].percent + '%' }]}></View>
-                                                    <View style={[styles.rangeDisabled, { width: 100 - this.state.slideData[0].percent + '%' }]}></View>
-                                                </View>
-                                                <Text style={styles.textInfo}>{this.state.slideData[0].percent}% գնված է</Text>
-                                            </View>
-
-                                        </View>
-                                    </View>
-                                </View>
-                            </View>
-                        </ImageBackground>
-                    </View>
+                    <SwipingCard data={this.state.slideData[2]} position={0}/>
+                    <SwipingCard data={this.state.slideData[1]} position={15}/>
+                    <SwipingCard data={this.state.slideData[0]} position={30}/>
                 </GestureRecognizer>
             </View>
         );
@@ -175,92 +134,7 @@ export class CurrentPostScreen extends Component {
 
 
 const styles = StyleSheet.create({
-    imageWrapper: {
-        width: '100%', height: '100%', position: 'absolute', borderRadius: 10, overflow: 'hidden'
-    },
-    textBlock: {
-        flex: 1,
-    },
-    section: {
-        flex: 1,
-    },
-    sectionTop: {
-        alignItems: 'center',
-        // paddingTop: 10
-    },
-    sectionBottom: {
-        justifyContent: 'flex-end',
-        alignItems: 'center'
-    },
-    wrapperBlock: {
-        height: '40%',
-        width: '100%',
-        backgroundColor: 'rgba(0,0,0,0.5)',
-        alignItems: 'center'
-    },
-    wrapper: {
-        height: '100%',
-        width: '80%',
-        paddingTop: 10
-
-    },
-    title: {
-        fontSize: 30,
-        color: THEME.WHITE,
-        fontWeight: "bold",
-        textTransform: 'uppercase'
-    },
-    desc: {
-        fontSize: 20,
-        color: THEME.WHITE,
-    },
-    topSection: {
-        height: '50%',
-    },
-    topInfoBlock: {
-        flexDirection: 'row',
-        justifyContent: 'space-around'
-    },
-    infoBlockCol: {
-        width: '30%',
-        height: '100%',
-    },
-    textVal: {
-        color: THEME.WHITE,
-        fontWeight: "bold",
-        fontSize: 16,
-
-    },
-    textDesc: {
-        color: THEME.MAIN_GREY,
-        fontSize: 14,
-
-    },
-    rangeBlock: {
-        width: '100%',
-        height: '30%',
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    rangeActive: {
-        height: '30%',
-        backgroundColor: THEME.MAIN_GREEN,
-        borderTopLeftRadius: 5,
-        borderBottomLeftRadius: 5,
-    },
-    rangeDisabled: {
-        height: '30%',
-        backgroundColor: THEME.MAIN_GREY,
-        // borderTopLeftRadius: 5,
-        // borderBottomLeftRadius: 5,
-    },
-    textInfo: {
-        color: THEME.WHITE,
-        fontSize: 14,
-        fontWeight: "bold",
-
-
-    }
+    
 })
 
 

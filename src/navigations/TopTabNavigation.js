@@ -13,9 +13,16 @@ import { THEME } from '../theme';
 
 const Tab = createMaterialTopTabNavigator();
 
+
+
 export function TopTabNavigation() {
   return (
     <Tab.Navigator
+
+    navigationOptions={
+           { gesturesEnabled: false,
+            swipeEnabled: false}
+        }
     tabBarOptions= {
       {tabStyle: {
         backgroundColor: THEME.WHITE,
