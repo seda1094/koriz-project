@@ -18,7 +18,7 @@ export const Card = ({data}) => {
                 </View>
                 <View style={styles.info}>
                     <View style={styles.productTextBlock}>
-                <Text style={styles.title}>Կարտոֆի{data.item.id}լ</Text>
+                <Text style={styles.title}>Կարտոֆիլ{data.item.id}</Text>
                         <Text style={styles.deadlineText}>Ակցիայի ավարտման օր</Text>
                         <Text style={styles.deadline}>23.05.2019</Text>
                     </View>

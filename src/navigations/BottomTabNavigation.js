@@ -20,7 +20,16 @@ export function BottomTabNavigation() {
      initialRouteName="Main"
      activeColor={THEME.MAIN_GREEN}
      inactiveColor={THEME.MAIN_GREY}
-     barStyle={{ backgroundColor: THEME.WHITE }}>
+     barStyle={{ backgroundColor: THEME.WHITE,
+      shadowColor: "#f00",
+      shadowOffset: {
+        width: 0,
+        height: 10,
+      },
+      shadowOpacity: 0.71,
+      shadowRadius: 13.16,
+      
+      elevation: 20, }}>
         <Tab.Screen 
         name="Main" 
         component={TopTabNavigation} 
