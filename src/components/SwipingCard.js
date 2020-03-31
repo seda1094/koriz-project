@@ -49,81 +49,106 @@ export const SwipingCard = ({ data, position }) => {
 
 const styles = StyleSheet.create({
     imageWrapper: {
-        width: '100%', height: '100%', position: 'absolute', borderRadius: 10, overflow: 'hidden'
+        width: '100%', height: '100%', position: 'absolute', borderRadius: 10, overflow: 'hidden',
+        shadowColor: "#000",
+shadowOffset: {
+	width: 0,
+	height: 9,
+},
+shadowOpacity: 0.48,
+shadowRadius: 11.95,
+
+elevation: 18,
     },
+
     textBlock: {
         flex: 1,
     },
+
     section: {
         flex: 1,
     },
+
     sectionTop: {
         alignItems: 'center',
     },
+
     sectionBottom: {
         justifyContent: 'flex-end',
         alignItems: 'center'
     },
+
     wrapperBlock: {
         height: '40%',
         width: '100%',
         backgroundColor: 'rgba(0,0,0,0.5)',
         alignItems: 'center'
     },
+
     wrapper: {
         height: '100%',
         width: '80%',
         paddingTop: 10
-
     },
+
     title: {
         fontSize: 20,
         color: THEME.WHITE,
         fontWeight: "bold",
         textTransform: 'uppercase'
     },
+
     desc: {
         fontSize: 20,
         color: THEME.WHITE,
     },
+
     topSection: {
         height: '50%',
     },
+
     topInfoBlock: {
         flexDirection: 'row',
         justifyContent: 'space-around'
     },
+
     infoBlockCol: {
         width: '30%',
         height: '100%',
     },
+
     textVal: {
         color: THEME.WHITE,
         fontWeight: "bold",
         fontSize: 16,
     },
+
     textDesc: {
         color: THEME.MAIN_GREY,
         fontSize: 14,
     },
+
     rangeBlock: {
         width: '100%',
         height: '30%',
         flexDirection: 'row',
         alignItems: 'center',
     },
+
     rangeActive: {
         height: '30%',
         backgroundColor: THEME.MAIN_GREEN,
         borderTopLeftRadius: 5,
         borderBottomLeftRadius: 5,
     },
+
     rangeDisabled: {
         height: '30%',
         backgroundColor: THEME.MAIN_GREY,
         // borderTopLeftRadius: 5,
         // borderBottomLeftRadius: 5,
     },
+    
     textInfo: {
         color: THEME.WHITE,
         fontSize: 14,

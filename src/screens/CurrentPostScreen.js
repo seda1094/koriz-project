@@ -20,7 +20,7 @@ export class CurrentPostScreen extends Component {
         fetch(url).then(res => res.json())
             .then(res => {
                 this.setState({
-                    loading:false,
+                    loading: false,
                     slideData: res
                 })
             })
@@ -58,30 +58,31 @@ export class CurrentPostScreen extends Component {
 
 
     render() {
+        let i = 30
         const config = {
             velocityThreshold: 0.1,
             directionalOffsetThreshold: 80
         };
-        let i = 30
+
         return (
             <View style={styles.container}>
-                {this.state.loading ? 
-                <Spinner size='large'/>
-                :<GestureRecognizer
-                    onSwipeUp={(state) => this.onSwipeUp(state)}
-                    onSwipeDown={(state) => this.onSwipeDown(state)}
-                    onSwipeLeft={(state) => this.onSwipeLeft(state)}
-                    onSwipeRight={(state) => this.onSwipeRight(state)}
-                    config={config}
-                    style={styles.guestWrapper}
-                >
-                    {this.state.slideData.map((data, index) =>{
+                {this.state.loading ?
+                    <Spinner size='large' />
+                    : <GestureRecognizer
+                        onSwipeUp={(state) => this.onSwipeUp(state)}
+                        onSwipeDown={(state) => this.onSwipeDown(state)}
+                        onSwipeLeft={(state) => this.onSwipeLeft(state)}
+                        onSwipeRight={(state) => this.onSwipeRight(state)}
+                        config={config}
+                        style={styles.guestWrapper}
+                    >
+                        {this.state.slideData.map((data, index) => {
                             if (index >= 3) {
                                 return;
                             }
-                            return ( <SwipingCard data={data} key={data.id.toString()} position={i -= 15} />)
+                            return (<SwipingCard data={data} key={data.id.toString()} position={i -= 15} />)
                         })}
-                </GestureRecognizer>}
+                    </GestureRecognizer>}
             </View>
         );
     }
@@ -89,12 +90,13 @@ export class CurrentPostScreen extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1, 
-        justifyContent: 'center', 
-        alignItems: 'center', 
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
         backgroundColor: '#fff'
     },
-    guestWrapper:{
+
+    guestWrapper: {
         width: '80%',
         height: '80%',
         justifyContent: 'center',

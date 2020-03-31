@@ -29,7 +29,7 @@ export function TopTabNavigation() {
           allowFontScaling: false
         }
       }
-
+      
       initialRouteName="Current"
       activeColor={THEME.BLACK}
       inactiveColor={THEME.DARK_GREY}
