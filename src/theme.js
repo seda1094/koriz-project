@@ -1,4 +1,3 @@
-
 export const THEME = {
     MAIN_GREEN: '#86c12d',
     MAIN_GREY: '#dddddd',

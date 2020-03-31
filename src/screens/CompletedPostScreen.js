@@ -8,6 +8,8 @@ import { Spinner } from '../components/UI/Spinner';
 export class CompletedPostScreen extends React.Component{
     constructor(){
         super()
+        //I would like to keep this state with redux, 
+        //because I have some difficulties passing and managing data from TopTabNavigation ://
         this.state={
             data: [],
             page: 1,
