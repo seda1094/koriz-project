@@ -1,31 +1,30 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import GestureRecognizer, { swipeDirections } from 'react-native-swipe-gestures';
+
 import { SwipingCard } from '../components/SwipingCard';
-
-
+import { Spinner } from '../components/UI/Spinner';
 
 
 export class CurrentPostScreen extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
             slideData: [],
+            loading: true,
         };
     }
 
-
     componentDidMount() {
-        const url = `https://calm-everglades-49836.herokuapp.com/data/1/5`
+        const url = `https://calm-everglades-49836.herokuapp.com/data/1/10`
         fetch(url).then(res => res.json())
             .then(res => {
                 this.setState({
+                    loading:false,
                     slideData: res
                 })
             })
     }
-
 
     swipeForwardHandler = () => {
         const cloneOfArray = [...this.state.slideData]
@@ -41,7 +40,7 @@ export class CurrentPostScreen extends Component {
         this.setState((prev) => ({ ...prev, slideData: cloneOfArray }));
     }
 
-    onSwipeUp(gestureState) {
+    onSwipeUp() {
         this.swipeForwardHandler()
     }
 
@@ -49,11 +48,11 @@ export class CurrentPostScreen extends Component {
         this.swipeBackHandler()
     }
 
-    onSwipeLeft(gestureState) {
+    onSwipeLeft() {
         this.swipeForwardHandler()
     }
 
-    onSwipeRight(gestureState) {
+    onSwipeRight() {
         this.swipeBackHandler()
     }
 
@@ -63,12 +62,12 @@ export class CurrentPostScreen extends Component {
             velocityThreshold: 0.1,
             directionalOffsetThreshold: 80
         };
-
-        let i = 0
+        let i = 30
         return (
             <View style={styles.container}>
-                <GestureRecognizer
-                    // onSwipe={(direction, state) => this.onSwipe(direction, state)}
+                {this.state.loading ? 
+                <Spinner size='large'/>
+                :<GestureRecognizer
                     onSwipeUp={(state) => this.onSwipeUp(state)}
                     onSwipeDown={(state) => this.onSwipeDown(state)}
                     onSwipeLeft={(state) => this.onSwipeLeft(state)}
@@ -76,25 +75,28 @@ export class CurrentPostScreen extends Component {
                     config={config}
                     style={styles.guestWrapper}
                 >
-
-                    {this.state.slideData.map(data => <SwipingCard data={data} position={i += 15} />)}
-                </GestureRecognizer>
+                    {this.state.slideData.map((data, index) =>{
+                            if (index >= 3) {
+                                return;
+                            }
+                            return ( <SwipingCard data={data} key={data.id.toString()} position={i -= 15} />)
+                        })}
+                </GestureRecognizer>}
             </View>
         );
     }
 }
 
-
 const styles = StyleSheet.create({
     container: {
         flex: 1, 
         justifyContent: 'center', 
-        alignItems: 'flex-end', 
+        alignItems: 'center', 
         backgroundColor: '#fff'
     },
     guestWrapper:{
-        width: '70%',
-        height: '70%',
+        width: '80%',
+        height: '80%',
         justifyContent: 'center',
     }
 })

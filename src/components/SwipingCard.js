@@ -1,49 +1,50 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button, Image, ImageBackground, SafeAreaView } from 'react-native';
-import {THEME} from '../theme'
+import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 
-export const SwipingCard = ({data,position}) => {   
-    return ( 
-<View style={[styles.imageWrapper,{bottom: position, right: position }]}>
-                        <ImageBackground style={{ width: '100%', height: '100%' }} source={{ uri: 'http://'+data.image }}>
-                            <View style={styles.textBlock}>
-                                <View style={[styles.section, styles.sectionTop]}>
-                                    <View style={styles.wrapperBlock}>
-                                        <View style={styles.wrapper}>
-                                            <Text style={styles.title}>{data.action_name}</Text>
-                                            <Text style={styles.desc}>{data.kg} կգ 12 օրում</Text>
-                                        </View>
-                                    </View>
-                                </View>
-                                <View style={[styles.section, styles.sectionBottom]}>
-                                    <View style={styles.wrapperBlock}>
-                                        <View style={styles.wrapper}>
-                                            <View style={[styles.topInfoBlock, styles.topSection]}>
-                                                <View style={styles.infoBlockCol}>
-                                                    <Text style={styles.textVal}>{data.kg}կգ</Text>
-                                                    <Text style={styles.textDesc}>Գնել են</Text>
-                                                </View>
-                                                <View style={styles.infoBlockCol}>
-                                                    <Text style={styles.textVal}>20 օր</Text>
-                                                    <Text style={styles.textDesc}>Ավարտ</Text>
-                                                </View>
+import { THEME } from '../theme'
 
-                                            </View>
-                                            <View style={[styles.topRangeBlock, styles.topSection]}>
-                                                <View style={styles.rangeBlock}>
-                                                    <View style={[styles.rangeActive, { width: +data.kg*10 + '%' }]}></View>
-                                                    <View style={[styles.rangeDisabled, { width: 100 - +data.kg*10 + '%' }]}></View>
-                                                </View>
-                                                <Text style={styles.textInfo}>{data.kg*10}% գնված է</Text>
-                                            </View>
-
-                                        </View>
-                                    </View>
-                                </View>
+export const SwipingCard = ({ data, position }) => {
+    return (
+        <View style={[styles.imageWrapper, { bottom: position, right: position }]}>
+            <ImageBackground style={{ width: '100%', height: '100%' }} source={{ uri: 'http://' + data.image }}>
+                <View style={styles.textBlock}>
+                    <View style={[styles.section, styles.sectionTop]}>
+                        <View style={styles.wrapperBlock}>
+                            <View style={styles.wrapper}>
+                                <Text style={styles.title}>{data.action_name}</Text>
+                                <Text style={styles.desc}>{data.kg} կգ 12 օրում</Text>
                             </View>
-                        </ImageBackground>
+                        </View>
                     </View>
-     );
+                    <View style={[styles.section, styles.sectionBottom]}>
+                        <View style={styles.wrapperBlock}>
+                            <View style={styles.wrapper}>
+                                <View style={[styles.topInfoBlock, styles.topSection]}>
+                                    <View style={styles.infoBlockCol}>
+                                        <Text style={styles.textVal}>{data.kg}կգ</Text>
+                                        <Text style={styles.textDesc}>Գնել են</Text>
+                                    </View>
+                                    <View style={styles.infoBlockCol}>
+                                        <Text style={styles.textVal}>20 օր</Text>
+                                        <Text style={styles.textDesc}>Ավարտ</Text>
+                                    </View>
+
+                                </View>
+                                <View style={[styles.topRangeBlock, styles.topSection]}>
+                                    <View style={styles.rangeBlock}>
+                                        <View style={[styles.rangeActive, { width: +data.kg * 10 + '%' }]}></View>
+                                        <View style={[styles.rangeDisabled, { width: 100 - +data.kg * 10 + '%' }]}></View>
+                                    </View>
+                                    <Text style={styles.textInfo}>{data.kg * 10}% գնված է</Text>
+                                </View>
+
+                            </View>
+                        </View>
+                    </View>
+                </View>
+            </ImageBackground>
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
@@ -58,7 +59,6 @@ const styles = StyleSheet.create({
     },
     sectionTop: {
         alignItems: 'center',
-        // paddingTop: 10
     },
     sectionBottom: {
         justifyContent: 'flex-end',
@@ -101,12 +101,10 @@ const styles = StyleSheet.create({
         color: THEME.WHITE,
         fontWeight: "bold",
         fontSize: 16,
-
     },
     textDesc: {
         color: THEME.MAIN_GREY,
         fontSize: 14,
-
     },
     rangeBlock: {
         width: '100%',
@@ -130,11 +128,9 @@ const styles = StyleSheet.create({
         color: THEME.WHITE,
         fontSize: 14,
         fontWeight: "bold",
-
-
     }
 })
- 
+
 
 
 

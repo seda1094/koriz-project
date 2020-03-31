@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, SafeAreaView, FlatList } from 'react-native';
+
 import { Card } from '../components/Card';
 import { Spinner } from '../components/UI/Spinner';
 
@@ -17,15 +18,15 @@ export class CompletedPostScreen extends React.Component{
     componentDidMount(){
         this.getData()        
     }
+
     handleLoadMore = ()=>{
-        this.setState({page: this.state.page+1,moreLoading:true}, this.getData)
-                
+        this.setState({page: this.state.page+1,moreLoading:true}, this.getData)          
     }
+
     getData = async () =>{
         const url = `https://calm-everglades-49836.herokuapp.com/data/${this.state.page}/10`
         fetch(url).then(res=>res.json())
         .then(res=>{
-            
             this.setState({
                 data: this.state.data.concat(res),
                 loading:false,
@@ -33,6 +34,7 @@ export class CompletedPostScreen extends React.Component{
             })
         })
     }
+
     render(){
     return (
         <SafeAreaView  style={styles.container}>
@@ -47,7 +49,6 @@ export class CompletedPostScreen extends React.Component{
             onEndReachedThreshold={0.5}
             ListFooterComponent={this.state.moreLoading?(<Spinner size="small"/>): null}
             />}
-           {/* {this.state.data.map((dataItem)=> <Card data={dataItem}/>)} */}
         </SafeAreaView>
     );
     }

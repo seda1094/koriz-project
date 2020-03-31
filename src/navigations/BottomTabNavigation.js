@@ -1,4 +1,5 @@
 import React from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { SimpleLineIcons } from 'react-native-vector-icons';
@@ -7,7 +8,7 @@ import { InfoScreen } from '../screens/InfoScreen'
 import { ProfileScreen } from '../screens/ProfileScreen'
 import { TopTabNavigation } from './TopTabNavigation'
 import { THEME } from '../theme';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+
 
 const Tab = createMaterialBottomTabNavigator();
 

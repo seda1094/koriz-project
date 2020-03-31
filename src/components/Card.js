@@ -1,21 +1,21 @@
 import React from 'react';
 import { View, Text, StyleSheet, ImageBackground } from 'react-native';
-import {THEME} from '../theme'
 
-export const Card = ({data}) => {   
-    return ( 
-    <View style={styles.wrapper}>
-        <View style={styles.card}>
+import { THEME } from '../theme'
+
+export const Card = ({ data }) => {
+    return (
+        <View style={styles.wrapper}>
+            <View style={styles.card}>
                 <View style={styles.banner}>
                     <ImageBackground
                         style={styles.bannerImage}
-                        source={{ uri: 'http://'+data.item.image }}>
+                        source={{ uri: 'http://' + data.item.image }}>
                     </ImageBackground>
-
                 </View>
                 <View style={styles.info}>
                     <View style={styles.productTextBlock}>
-                <Text style={styles.title}>{data.item.action_name}</Text>
+                        <Text style={styles.title}>{data.item.action_name}</Text>
                         <Text style={styles.deadlineText}>Ակցիայի ավարտման օր</Text>
                         <Text style={styles.deadline}>{data.item.shipping_date}</Text>
                     </View>
@@ -26,7 +26,6 @@ export const Card = ({data}) => {
                                 <Text style={styles.value}>{data.item.kg} կգ</Text>
                             </View>
                         </View>
-
                         <View style={styles.productPrice}>
                             <View style={styles.infoWrapperPrice}>
                                 <Text style={styles.desc}>Գումար</Text>
@@ -36,19 +35,20 @@ export const Card = ({data}) => {
                     </View>
                 </View>
             </View>
-            </View>
-     );
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
-    wrapper:{
+    wrapper: {
         width: '100%',
         alignItems: 'center'
 
     },
+
     card: {
         width: '90%',
-        height: 290,
+        height: 295,
         marginTop: 20,
         borderRadius: 10,
         overflow: 'hidden',
@@ -61,40 +61,44 @@ const styles = StyleSheet.create({
         shadowRadius: 14.78,
         elevation: 22,
     },
+
     banner: {
         flex: 3,
         backgroundColor: THEME.MAIN_GREEN,
 
     },
+
     bannerImage: {
         width: '100%',
         height: '100%'
     },
+
     info: {
         flex: 4,
         backgroundColor: THEME.WHITE
     },
-    productTextBlock: {
-        height: '60%'
 
+    productTextBlock: {
+        height: '60%',
     },
 
     title: {
-        fontSize: 28,
+        fontSize: 20,
         textTransform: 'uppercase',
         fontWeight: 'bold',
         marginVertical: 6,
         textAlign: 'center',
-
     },
+
     deadlineText: {
-        fontSize: 16,
+        fontSize: 15,
         textTransform: 'capitalize',
         color: THEME.MAIN_GREEN,
         marginVertical: 4,
         textAlign: 'center'
 
     },
+
     deadline: {
         fontSize: 14,
         fontWeight: 'bold',
@@ -102,42 +106,47 @@ const styles = StyleSheet.create({
         textAlign: 'center'
 
     },
+
     productInfoBlock: {
         flexDirection: 'row',
-        height: '40%'
-
+        height: '30%',
     },
+
     productCount: {
         flex: 1,
         justifyContent: 'center',
     },
+
     infoWrapperCount: {
         alignItems: 'center',
         height: '60%',
-        borderRightWidth: 2,
-        borderRightColor: THEME.MAIN_GREY,
-        borderStyle: 'dotted',
     },
+
     productPrice: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
     },
+
     infoWrapperPrice: {
         alignItems: 'center',
-        height: '60%'
-
+        height: '60%',
+        // borderRightWidth: 2,
+        // borderRightColor: THEME.MAIN_GREY,
+        // borderStyle: 'dotted',
     },
+
     desc: {
-        fontSize: 16,
+        fontSize: 15,
         textTransform: 'capitalize',
         color: THEME.MAIN_GREY,
     },
+
     value: {
-        fontSize: 18,
+        fontSize: 17,
         textTransform: 'uppercase',
         fontWeight: 'bold',
         color: THEME.MAIN_GREEN
     }
 })
- 
+
